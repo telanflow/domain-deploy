@@ -1,0 +1,32 @@
+default:
+  ip: 0.0.0.0
+  port: 51000
+
+deploy:
+  # token
+  token: ""
+  # 部署命令
+  cmds: {
+    "cmd_simple_nginx": "nginx -s reload",
+    "cmd_docker_nginx": "docker exec -it nginx nginx -s reload",
+    "cmd_test_1": "pwd && ls"
+  }
+
+logger:
+  # 日志等级 可选的值：debug info warn error
+  level: "info"
+  # 类型 可选的值：file console
+  output: "console"
+  # 编码方式 可选的值：json console
+  encoder: "console"
+  # 日志文件保存路径
+  file: "./logs/deploy.log"
+  # 日志文件分隔大小 单位：MB
+  maxSize: 500
+  # 保留旧日志文件的最大个数
+  maxBackups: 1
+  # 保留旧日志文件的最大天数
+  maxAge: 5
+  # 是否压缩/归档旧日志文件
+  compress: false
+
